@@ -176,7 +176,6 @@ workspace.addEventListener("touchstart", (e) => {
         touch2_startY = e.touches[1].clientY;
         finger_time = finger2 - finger1;
         horz_or_vert();
-        console.log(had_change);
         if (finger2 - finger1 < 200 || had_change == 1) {
             had_change = 1;
         } else {
@@ -188,6 +187,7 @@ workspace.addEventListener("touchstart", (e) => {
             document.removeEventListener("touchmove", touchmove);
             document.removeEventListener("keydown", remove);
         }
+        console.log("had_change =" + had_change);
     } else if (e.touches.length == 3) {
         target.style.left = originX;
         target.style.top = originY;
