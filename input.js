@@ -42,6 +42,7 @@ var finger1;
 var finger2;
 var finger_time;
 var horz1_vert0;
+var had_change = 0;
 
 
 for (let i = 0; i < targets.length; i++) {
@@ -176,8 +177,8 @@ workspace.addEventListener("touchstart", (e) => {
         finger_time = finger2 - finger1;
         horz_or_vert();
         console.log(horz1_vert0);
-        if (finger2 - finger1 < 200) {
-
+        if (finger2 - finger1 < 200 || had_change == 1) {
+            had_change = 1;
         } else {
             target.style.left = originX;
             target.style.top = originY;
@@ -192,6 +193,7 @@ workspace.addEventListener("touchstart", (e) => {
         target.style.top = originY;
         dbclick = 0;
         dbtouch = 0;
+        had_change = 0;
         document.removeEventListener("mousemove", mousemove);
         document.removeEventListener("touchmove", touchmove);
         document.removeEventListener("keydown", remove);
@@ -283,7 +285,7 @@ workspace.addEventListener("touchmove", (e) => {
                     targets[index_change_bkc].style.top = parseFloat(targets[index_change_bkc].style.top) - (Math.abs(touch2Y - touchY) - Math.abs(touch2_startY - touch1_startY)) / 2 + 'px';
                 }
 
-                console.log(targets[index_change_bkc].style.objectPosition);
+                //console.log(targets[index_change_bkc].style.objectPosition);
             }
         }
         touch2_startX = touch2X;
