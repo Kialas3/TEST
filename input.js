@@ -310,10 +310,13 @@ workspace.addEventListener("touchmove", (e) => {
 
 function remove(e) {
     if (e.code == 'Escape') {
+        targets[index_change_bkc].style.height = original_height;
+        targets[index_change_bkc].style.width = original_width;
         targets[index_change_bkc].style.left = originX;
         targets[index_change_bkc].style.top = originY;
         dbclick = 0;
         dbtouch = 0;
+        had_change = 0;
         document.removeEventListener("mousemove", mousemove);
         document.removeEventListener("touchmove", touchmove);
         document.removeEventListener("keydown", remove);
