@@ -43,23 +43,11 @@ var finger2;
 var finger_time;
 var horz1_vert0;
 var had_change = 0;
+var original_height;
+var original_width;
 
 
 for (let i = 0; i < targets.length; i++) {
-
-    // targets[i].addEventListener("touchstart", (e) => {
-    //     e.preventDefault();
-    //     console.log("touchstart");
-    //     originX = targets[i].style.left;
-    //     originY = targets[i].style.top;
-    //     startX = e.touches[0].clientX - targets[i].offsetLeft;
-    //     startY = e.touches[0].clientY - targets[i].offsetTop;
-    //     target = targets[i];
-    //     document.addEventListener("touchmove", touchmove);
-    //     document.addEventListener('touchend', touchend);
-    //     for_touch_index = i;
-    // });
-
     targets[i].addEventListener("mousedown", (e) => {
         e.preventDefault();
 
@@ -158,7 +146,10 @@ workspace.addEventListener("mousedown", () => {
 
 });
 workspace.addEventListener("touchstart", (e) => {
-    //console.log("e.touches.length =" + e.touches.length);
+    if (index_change_bkc != -1) {
+        original_height = targets[index_change_bkc].style.height;
+        original_width = targets[index_change_bkc].style.width;
+    };
     if (e.touches.length == 1) {
         finger1 = e.timeStamp;
         touch_start = new Date().getTime();
@@ -193,6 +184,8 @@ workspace.addEventListener("touchstart", (e) => {
     } else if (e.touches.length == 3) {
         target.style.left = originX;
         target.style.top = originY;
+        targets[index_change_bkc].style.height = original_height;
+        targets[index_change_bkc].style.width = original_width;
         dbclick = 0;
         dbtouch = 0;
         had_change = 0;
