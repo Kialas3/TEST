@@ -265,10 +265,13 @@ workspace.addEventListener("mousemove", (e) => {
 })
 
 workspace.addEventListener("touchmove", (e) => {
-    console.log("touchmove");
+    console.log("0X =" + e.touches[0].clientX);
+
+
     touchX = e.touches[0].clientX;
     touchY = e.touches[0].clientY;
     if (e.touches.length == 2) {
+        console.log("2X =" + e.touches[1].clientX);
         document.removeEventListener("touchmove", touchmove);
         touch2X = e.touches[1].clientX;
         touch2Y = e.touches[1].clientY;
