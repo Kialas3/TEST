@@ -178,8 +178,8 @@ workspace.addEventListener("touchstart", (e) => {
 
             had_change = 1;
         } else {
-            target.style.left = originX;
-            target.style.top = originY;
+            targets[index_change_bkc].style.left = originX;
+            targets[index_change_bkc].style.top = originY;
             dbclick = 0;
             dbtouch = 0;
             document.removeEventListener("mousemove", mousemove);
@@ -294,8 +294,8 @@ workspace.addEventListener("touchmove", (e) => {
 
 function remove(e) {
     if (e.code == 'Escape') {
-        target.style.left = originX;
-        target.style.top = originY;
+        targets[index_change_bkc].style.left = originX;
+        targets[index_change_bkc].style.top = originY;
         dbclick = 0;
         dbtouch = 0;
         document.removeEventListener("mousemove", mousemove);
@@ -317,16 +317,16 @@ function mouseup(e) {
 function mousemove(e) {
     x = mouseX - startX;
     y = mouseY - startY;
-    target.style.left = x + 'px';
-    target.style.top = y + 'px';
+    targets[index_change_bkc].style.left = x + 'px';
+    targets[index_change_bkc].style.top = y + 'px';
 }
 
 function touchmove(e) {
     had_change = 0;
     x = touchX - startX;
     y = touchY - startY;
-    target.style.left = x + 'px';
-    target.style.top = y + 'px';
+    targets[index_change_bkc].style.left = x + 'px';
+    targets[index_change_bkc].style.top = y + 'px';
     document.addEventListener('keydown', remove);
 }
 
