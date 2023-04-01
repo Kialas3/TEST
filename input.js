@@ -158,6 +158,7 @@ workspace.addEventListener("touchstart", (e) => {
         touch1_startY = e.touches[0].clientY;
         down_touchX = touchX;
         down_touchY = touchY;
+        had_change = 0;
 
         if (index_change_bkc != -1) {
             original_height = targets[index_change_bkc].style.height;
@@ -299,10 +300,15 @@ workspace.addEventListener("touchmove", (e) => {
         }
 
     }
-    touch2_startX = touch2X;
-    touch2_startY = touch2Y;
-    touch1_startX = touchX;
-    touch1_startY = touchY;
+    if (had_change == 1) {
+        touch2_startX = touch2X;
+        touch2_startY = touch2Y;
+        touch1_startX = touchX;
+        touch1_startY = touchY;
+    } else {
+        touch1_startX = touchX;
+        touch1_startY = touchY;
+    }
 })
 
 function remove(e) {
