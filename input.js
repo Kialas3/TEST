@@ -228,13 +228,6 @@ workspace.addEventListener("touchend", () => {
     } else {
         change_color = false;
     }
-    //console.log("2");
-    //console.log("change_color =" + change_color);
-    // if (dbtouch) {
-
-    // } else {
-    //     doubletouch();
-    // }
     if (target != targets[index_change_bkc]) {
         dbtouch = 0;
     }
@@ -309,6 +302,7 @@ workspace.addEventListener("touchmove", (e) => {
 })
 
 function remove(e) {
+    console.log("e.code =" + e.code);
     if (e.code == 'Escape') {
         targets[index_change_bkc].style.height = original_height;
         targets[index_change_bkc].style.width = original_width;
