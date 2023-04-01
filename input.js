@@ -318,29 +318,6 @@ function mouseup(e) {
     document.removeEventListener("mouseup", mouseup);
     document.removeEventListener("keydown", remove);
 }
-// function touchend(e) {
-//     if (dbtouch) {
-//         console.log("db");
-
-//     } else {
-//         if (change_color) {
-//             if (index_change_bkc != -1) {
-//                 targets[index_change_bkc].classList.toggle("change_bkc");
-//             }
-//             target.classList.toggle("change_bkc");
-//             index_change_bkc = for_touch_index;
-
-//         }
-//     }
-
-//     if (dbtouch) {
-//         document.removeEventListener("keydown", remove);
-//     } else {
-//         document.removeEventListener("touchmove", touchmove);
-//         document.removeEventListener("touchend", touchend);
-//         document.removeEventListener("keydown", remove);
-//     }
-// }
 
 function mousemove(e) {
     x = mouseX - startX;
@@ -350,6 +327,7 @@ function mousemove(e) {
 }
 
 function touchmove(e) {
+    had_change = 0;
     x = touchX - startX;
     y = touchY - startY;
     target.style.left = x + 'px';
@@ -361,7 +339,7 @@ function doubletouch() {
     var now = new Date().getTime();
     var timesince = now - latest_touch;
     latest_touch = new Date().getTime();
-    if ((timesince < 600) && (timesince > 0) && Math.abs(up_touchX - down_touchX) < 5 && Math.abs(up_touchY - down_touchY) < 5) {
+    if ((timesince < 600) && (timesince > 0) && Math.abs(up_touchX - down_touchX) < 10 && Math.abs(up_touchY - down_touchY) < 10) {
         dbtouch = 1;
         console.log("dbtouch =" + dbtouch);
     }
