@@ -187,7 +187,7 @@ workspace.addEventListener("touchstart", (e) => {
         console.log("had_change =" + had_change);
     } else if (e.touches.length == 3) {
         targets[index_change_bkc].style.height = original_height + 'px';
-        targets[index_change_bkc].style.width = original_widt + 'px';
+        targets[index_change_bkc].style.width = original_width + 'px';
         target.style.left = originX;
         target.style.top = originY;
         dbclick = 0;
