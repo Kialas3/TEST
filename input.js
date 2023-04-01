@@ -158,7 +158,7 @@ workspace.addEventListener("mousedown", () => {
 
 });
 workspace.addEventListener("touchstart", (e) => {
-    console.log("e.touches.length =" + e.touches.length);
+    //console.log("e.touches.length =" + e.touches.length);
     if (e.touches.length == 1) {
         finger1 = e.timeStamp;
         touch_start = new Date().getTime();
