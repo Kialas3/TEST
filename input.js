@@ -278,7 +278,7 @@ workspace.addEventListener("touchmove", (e) => {
         document.removeEventListener("touchmove", touchmove);
         touch2X = e.touches[1].clientX;
         touch2Y = e.touches[1].clientY;
-        if (finger2 - finger1 < 200 || had_change == 1) {
+        if (finger2 - finger1 < 200 && had_change == 1) {
             if (index_change_bkc != -1) {
                 if (horz1_vert0) {
                     targets[index_change_bkc].style.width = parseFloat(targets[index_change_bkc].style.width) + (Math.abs(touch2X - touchX) - Math.abs(touch2_startX - touch1_startX)) + 'px';
