@@ -151,6 +151,8 @@ workspace.addEventListener("touchstart", (e) => {
     if (index_change_bkc != -1) {
         original_height = targets[index_change_bkc].style.height;
         original_width = targets[index_change_bkc].style.width;
+        console.log("original_height =" + original_height);
+        console.log("original_width =" + original_width);
     };
     if (e.touches.length == 1) {
         finger1 = e.timeStamp;
@@ -184,10 +186,10 @@ workspace.addEventListener("touchstart", (e) => {
         }
         console.log("had_change =" + had_change);
     } else if (e.touches.length == 3) {
-        target.style.left = originX;
-        target.style.top = originY;
         targets[index_change_bkc].style.height = original_height;
         targets[index_change_bkc].style.width = original_width;
+        target.style.left = originX;
+        target.style.top = originY;
         dbclick = 0;
         dbtouch = 0;
         had_change = 0;
