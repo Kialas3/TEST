@@ -302,15 +302,10 @@ workspace.addEventListener("touchmove", (e) => {
         }
 
     }
-    if (had_change == 1) {
-        touch2_startX = touch2X;
-        touch2_startY = touch2Y;
-        touch1_startX = touchX;
-        touch1_startY = touchY;
-    } else {
-        touch1_startX = touchX;
-        touch1_startY = touchY;
-    }
+    touch2_startX = touch2X;
+    touch2_startY = touch2Y;
+    touch1_startX = touchX;
+    touch1_startY = touchY;
 })
 
 function remove(e) {
