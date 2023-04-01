@@ -176,7 +176,9 @@ workspace.addEventListener("touchstart", (e) => {
         touch2_startY = e.touches[1].clientY;
         finger_time = finger2 - finger1;
         horz_or_vert();
+        console.log("horz1_vert0 =" + horz1_vert0);
         if (finger2 - finger1 < 200 || had_change == 1) {
+
             had_change = 1;
         } else {
             target.style.left = originX;
