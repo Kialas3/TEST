@@ -294,9 +294,10 @@ workspace.addEventListener("touchmove", (e) => {
                 //console.log(targets[index_change_bkc].style.objectPosition);
             }
         }
-        touch2_startX = touch2X;
-        touch2_startY = touch2Y;
+
     }
+    touch2_startX = touch2X;
+    touch2_startY = touch2Y;
     touch1_startX = touchX;
     touch1_startY = touchY;
 })
