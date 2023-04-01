@@ -148,14 +148,15 @@ workspace.addEventListener("mousedown", () => {
 workspace.addEventListener("touchstart", (e) => {
     console.log("e.touches.length =" + e.touches.length);
 
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+    touch1_startX = e.touches[0].clientX;
+    touch1_startY = e.touches[0].clientY;
 
     if (e.touches.length == 1) {
         finger1 = e.timeStamp;
         touch_start = new Date().getTime();
-        touchX = e.touches[0].clientX;
-        touchY = e.touches[0].clientY;
-        touch1_startX = e.touches[0].clientX;
-        touch1_startY = e.touches[0].clientY;
+
         down_touchX = touchX;
         down_touchY = touchY;
         had_change = 0;
@@ -275,8 +276,6 @@ workspace.addEventListener("touchmove", (e) => {
     if (e.touches.length == 2) {
         console.log("2X =" + e.touches[1].clientX);
         document.removeEventListener("touchmove", touchmove);
-        touchX = e.touches[0].clientX;
-        touchY = e.touches[0].clientY;
         touch2X = e.touches[1].clientX;
         touch2Y = e.touches[1].clientY;
         if (finger2 - finger1 < 200 || had_change == 1) {
