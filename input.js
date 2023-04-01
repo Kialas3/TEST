@@ -148,12 +148,7 @@ workspace.addEventListener("mousedown", () => {
 workspace.addEventListener("touchstart", (e) => {
     console.log("e.touches.length =" + e.touches.length);
 
-    if (index_change_bkc != -1) {
-        original_height = targets[index_change_bkc].style.height;
-        original_width = targets[index_change_bkc].style.width;
-        console.log("original_height =" + original_height);
-        console.log("original_width =" + original_width);
-    };
+
     if (e.touches.length == 1) {
         finger1 = e.timeStamp;
         touch_start = new Date().getTime();
@@ -163,6 +158,13 @@ workspace.addEventListener("touchstart", (e) => {
         touch1_startY = e.touches[0].clientY;
         down_touchX = touchX;
         down_touchY = touchY;
+
+        if (index_change_bkc != -1) {
+            original_height = targets[index_change_bkc].style.height;
+            original_width = targets[index_change_bkc].style.width;
+            console.log("original_height =" + original_height);
+            console.log("original_width =" + original_width);
+        };
     } else if (e.touches.length == 2) {
         finger2 = e.timeStamp;
         touch2X = e.touches[1].clientX;
