@@ -372,7 +372,7 @@ function doubletouch() {
 }
 
 function horz_or_vert() {
-    if (Math.abs(Math.abs(touch2X - touchX) - Math.abs(touch2_startX - touch1_startX)) > Math.abs(Math.abs(touch2Y - touchY) - Math.abs(touch2_startY - touch1_startY))) {
+    if (Math.abs(touch2_startX - touch1_startX) > Math.abs(touch2_startY - touch1_startY)) {
         horz1_vert0 = 1;
     } else {
         horz1_vert0 = 0;
