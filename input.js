@@ -146,6 +146,8 @@ workspace.addEventListener("mousedown", () => {
 
 });
 workspace.addEventListener("touchstart", (e) => {
+    console.log("e.touches.length =" + e.touches.length);
+
     if (index_change_bkc != -1) {
         original_height = targets[index_change_bkc].style.height;
         original_width = targets[index_change_bkc].style.width;
@@ -193,10 +195,6 @@ workspace.addEventListener("touchstart", (e) => {
         document.removeEventListener("touchmove", touchmove);
         document.removeEventListener("keydown", remove);
     }
-
-    console.log("touch_start =" + touch_start);
-    console.log("touch2Y =" + touch2Y);
-    console.log("touchY =" + touchY);
 })
 
 workspace.addEventListener("mouseup", mouseup);
