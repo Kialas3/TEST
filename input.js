@@ -355,8 +355,8 @@ function doubletouch() {
 }
 
 function horz_or_vert() {
-    console.log("touch2_startX - touch1_startX =" + touch2_startX - touch1_startX);
-    console.log("touch2_startY - touch1_startY =" + touch2_startY - touch1_startY);
+    console.log("X =" + (touch2_startX - touch1_startX));
+    console.log("Y =" + (touch2_startY - touch1_startY));
     if (Math.abs(touch2_startX - touch1_startX) > Math.abs(touch2_startY - touch1_startY)) {
         horz1_vert0 = 1;
     } else {
