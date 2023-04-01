@@ -317,16 +317,16 @@ function mouseup(e) {
 function mousemove(e) {
     x = mouseX - startX;
     y = mouseY - startY;
-    targets[index_change_bkc].style.left = x + 'px';
-    targets[index_change_bkc].style.top = y + 'px';
+    target.style.left = x + 'px';
+    target.style.top = y + 'px';
 }
 
 function touchmove(e) {
     had_change = 0;
     x = touchX - startX;
     y = touchY - startY;
-    targets[index_change_bkc].style.left = x + 'px';
-    targets[index_change_bkc].style.top = y + 'px';
+    target.style.left = x + 'px';
+    target.style.top = y + 'px';
     document.addEventListener('keydown', remove);
 }
 
