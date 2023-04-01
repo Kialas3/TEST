@@ -75,22 +75,16 @@ for (let i = 0; i < targets.length; i++) {
         target = targets[i];
 
         if (dbtouch) {
-            //document.addEventListener('touchend', touchend);
         } else {
             document.addEventListener("touchmove", touchmove);
-            //document.addEventListener('touchend', touchend);
             document.addEventListener('keydown', remove);
         }
-
-
     }, true);
 
     targets[i].addEventListener("click", (e) => {
         e.preventDefault();
         if (dbclick) {
-
         } else {
-            console.log("targets");
             if (change_color) {
                 if (index_change_bkc != -1) {
                     targets[index_change_bkc].classList.toggle("change_bkc");
@@ -103,34 +97,23 @@ for (let i = 0; i < targets.length; i++) {
     });
     targets[i].addEventListener("dblclick", (e) => {
         e.preventDefault();
-        console.log("dbclick");
         startX = e.clientX - targets[i].offsetLeft;
         startY = e.clientY - targets[i].offsetTop;
         target = targets[i];
-
         dbclick = 1;
-
         document.addEventListener("mousemove", mousemove);
         document.addEventListener('keydown', remove);
     })
     targets[i].addEventListener("touchend", (e) => {
         e.preventDefault();
-        // if (dbtouch) {
-
-        // } else {
-        //     doubletouch();
-        // }
-        console.log("1");
         if (dbtouch) {
             document.addEventListener("touchmove", touchmove);
             document.addEventListener('keydown', remove);
         } else {
             if (change_color) {
-                console.log("td");
                 if (index_change_bkc != -1) {
                     targets[index_change_bkc].classList.toggle("change_bkc");
                 }
-                console.log("i =" + i);
                 targets[i].classList.toggle("change_bkc");
                 index_change_bkc = i;
             }
@@ -143,10 +126,8 @@ const workspace = document.getElementById("workspace");
 workspace.addEventListener("mousedown", () => {
     down_mouseX = mouseX;
     down_mouseY = mouseY;
-
 });
 workspace.addEventListener("touchstart", (e) => {
-    console.log("e.touches.length =" + e.touches.length);
 
     touchX = e.touches[0].clientX;
     touchY = e.touches[0].clientY;
@@ -164,8 +145,6 @@ workspace.addEventListener("touchstart", (e) => {
         if (index_change_bkc != -1) {
             original_height = targets[index_change_bkc].style.height;
             original_width = targets[index_change_bkc].style.width;
-            console.log("original_height =" + original_height);
-            console.log("original_width =" + original_width);
         };
     } else if (e.touches.length == 2) {
         finger2 = e.timeStamp;
@@ -175,9 +154,7 @@ workspace.addEventListener("touchstart", (e) => {
         touch2_startY = e.touches[1].clientY;
         finger_time = finger2 - finger1;
         horz_or_vert();
-        console.log("horz1_vert0 =" + horz1_vert0);
         if (finger2 - finger1 < 200 || had_change == 1) {
-
             had_change = 1;
         } else {
             targets[index_change_bkc].style.left = originX;
@@ -188,7 +165,6 @@ workspace.addEventListener("touchstart", (e) => {
             document.removeEventListener("touchmove", touchmove);
             document.removeEventListener("keydown", remove);
         }
-        console.log("had_change =" + had_change);
     } else if (e.touches.length == 3) {
         targets[index_change_bkc].style.height = original_height;
         targets[index_change_bkc].style.width = original_width;
@@ -206,10 +182,8 @@ workspace.addEventListener("touchstart", (e) => {
 workspace.addEventListener("mouseup", mouseup);
 workspace.addEventListener("click", () => {
     if (dbclick) {
-
     } else {
         if (change_color) {
-            console.log("click");
             if (index_change_bkc != -1) {
                 targets[index_change_bkc].classList.toggle("change_bkc");
             }
@@ -232,14 +206,9 @@ workspace.addEventListener("touchend", () => {
         dbtouch = 0;
     }
     doubletouch();
-    console.log("db =" + dbtouch);
     if (dbtouch) {
-        //console.log("db");
-
     } else {
-
         if (change_color) {
-            console.log("wsd");
             if (index_change_bkc != -1) {
                 targets[index_change_bkc].classList.toggle("change_bkc");
             }
@@ -253,21 +222,14 @@ workspace.addEventListener("touchend", () => {
 }, true);
 
 workspace.addEventListener("mousemove", (e) => {
-
     mouseX = e.clientX;
     mouseY = e.clientY;
-    //console.log(mouseX, mouseY);
-})
-
+});
 workspace.addEventListener("touchmove", (e) => {
-    console.log("0X =" + e.touches[0].clientX);
-
-
     touchX = e.touches[0].clientX;
     touchY = e.touches[0].clientY;
 
     if (e.touches.length == 2) {
-        console.log("2X =" + e.touches[1].clientX);
         document.removeEventListener("touchmove", touchmove);
         touch2X = e.touches[1].clientX;
         touch2Y = e.touches[1].clientY;
@@ -284,25 +246,20 @@ workspace.addEventListener("touchmove", (e) => {
                     targets[index_change_bkc].style.height = parseFloat(targets[index_change_bkc].style.height) + (Math.abs(touch2Y - touchY) - Math.abs(touch2_startY - touch1_startY)) + 'px';
                     if (parseFloat(targets[index_change_bkc].style.height) <= 10) {
                         targets[index_change_bkc].style.height = 10 + 'px';
-
                     } else {
                         targets[index_change_bkc].style.top = parseFloat(targets[index_change_bkc].style.top) - (Math.abs(touch2Y - touchY) - Math.abs(touch2_startY - touch1_startY)) / 2 + 'px';
                     }
                 }
-
-                //console.log(targets[index_change_bkc].style.objectPosition);
             }
         }
-
     }
     touch2_startX = touch2X;
     touch2_startY = touch2Y;
     touch1_startX = touchX;
     touch1_startY = touchY;
-})
+});
 
 function remove(e) {
-    console.log("e.code =" + e.code);
     if (e.code == 'Escape') {
         targets[index_change_bkc].style.height = original_height;
         targets[index_change_bkc].style.width = original_width;
@@ -316,6 +273,7 @@ function remove(e) {
         document.removeEventListener("keydown", remove);
     }
 }
+
 function mouseup(e) {
     if (down_mouseX == mouseX && down_mouseY == mouseY) {
         change_color = true;
@@ -349,17 +307,10 @@ function doubletouch() {
     latest_touch = new Date().getTime();
     if ((timesince < 600) && (timesince > 0) && Math.abs(up_touchX - down_touchX) < 10 && Math.abs(up_touchY - down_touchY) < 10) {
         dbtouch = 1;
-        console.log("dbtouch =" + dbtouch);
     }
-    // else {
-    //     dbtouch = 0;
-    //     console.log("dbtouch =" + dbtouch);
-    // }
 }
 
 function horz_or_vert() {
-    console.log("X =" + (touch2_startX - touch1_startX));
-    console.log("Y =" + (touch2_startY - touch1_startY));
     if (Math.abs(touch2_startX - touch1_startX) > Math.abs(touch2_startY - touch1_startY)) {
         horz1_vert0 = 1;
     } else {
