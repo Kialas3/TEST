@@ -276,9 +276,15 @@ workspace.addEventListener("touchmove", (e) => {
             if (index_change_bkc != -1) {
                 if (horz1_vert0) {
                     targets[index_change_bkc].style.width = parseFloat(targets[index_change_bkc].style.width) + (Math.abs(touch2X - touchX) - Math.abs(touch2_startX - touch1_startX)) + 'px';
+                    if (parseFloat(targets[index_change_bkc].style.width) < 10) {
+                        targets[index_change_bkc].style.width = 10 + 'px';
+                    }
                     targets[index_change_bkc].style.left = parseFloat(targets[index_change_bkc].style.left) - (Math.abs(touch2X - touchX) - Math.abs(touch2_startX - touch1_startX)) / 2 + 'px';
                 } else {
                     targets[index_change_bkc].style.height = parseFloat(targets[index_change_bkc].style.height) + (Math.abs(touch2Y - touchY) - Math.abs(touch2_startY - touch1_startY)) + 'px';
+                    if (parseFloat(targets[index_change_bkc].style.height) < 10) {
+                        targets[index_change_bkc].style.height = 10 + 'px';
+                    }
                     targets[index_change_bkc].style.top = parseFloat(targets[index_change_bkc].style.top) - (Math.abs(touch2Y - touchY) - Math.abs(touch2_startY - touch1_startY)) / 2 + 'px';
                 }
 
