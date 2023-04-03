@@ -51,31 +51,43 @@ for (let i = 0; i < targets.length; i++) {
     targets[i].addEventListener("mousedown", (e) => {
         e.preventDefault();
 
-        originX = targets[i].style.left;
-        originY = targets[i].style.top;
-        startX = e.clientX - targets[i].offsetLeft;
-        startY = e.clientY - targets[i].offsetTop;
-        target = targets[i];
+        // originX = targets[i].style.left;
+        // originY = targets[i].style.top;
+        // startX = e.clientX - targets[i].offsetLeft;
+        // startY = e.clientY - targets[i].offsetTop;
+        // target = targets[i];
 
         if (dbclick) {
             document.addEventListener('mouseup', mouseup);
+            console.log("dbclick");
         } else {
+            originX = targets[i].style.left;
+            originY = targets[i].style.top;
+            startX = e.clientX - targets[i].offsetLeft;
+            startY = e.clientY - targets[i].offsetTop;
+            target = targets[i];
             document.addEventListener("mousemove", mousemove);
             document.addEventListener('mouseup', mouseup);
             document.addEventListener('keydown', remove);
+            console.log("click");
         }
     }, true);
     targets[i].addEventListener("touchstart", (e) => {
         e.preventDefault();
 
-        originX = targets[i].style.left;
-        originY = targets[i].style.top;
-        startX = e.touches[0].clientX - targets[i].offsetLeft;
-        startY = e.touches[0].clientY - targets[i].offsetTop;
-        target = targets[i];
+        // originX = targets[i].style.left;
+        // originY = targets[i].style.top;
+        // startX = e.touches[0].clientX - targets[i].offsetLeft;
+        // startY = e.touches[0].clientY - targets[i].offsetTop;
+        // target = targets[i];
 
         if (dbtouch) {
         } else {
+            originX = targets[i].style.left;
+            originY = targets[i].style.top;
+            startX = e.touches[0].clientX - targets[i].offsetLeft;
+            startY = e.touches[0].clientY - targets[i].offsetTop;
+            target = targets[i];
             document.addEventListener("touchmove", touchmove);
             document.addEventListener('keydown', remove);
         }
@@ -290,6 +302,7 @@ function mousemove(e) {
     y = mouseY - startY;
     target.style.left = x + 'px';
     target.style.top = y + 'px';
+    console.log(dbclick);
 }
 
 function touchmove(e) {
